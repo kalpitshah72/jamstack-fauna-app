@@ -5,7 +5,7 @@ exports.handler = async (event) => {
   if (event.httpMethod !== "DELETE") {
     return formattedResponse(405, { err: "Method not supported" });
   }
-  const { _id: id } = JSON.parse(event.body);
+  const { id } = JSON.parse(event.body);
   const variables = { id };
   try {
     const { deleteLink: deletedLink } = await sendQuery(DELETE_LINK, variables);
